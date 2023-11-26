@@ -24,7 +24,7 @@ public class Order extends AggregateRoot<OrderId> {
   private List<String> failureStatus;
 
   private Order(Builder builder) {
-    id = builder.id;
+    super.setId(builder.orderId);
     customerId = builder.customerId;
     restaurantId = builder.restaurantId;
     deliveryAddress = builder.deliveryAddress;

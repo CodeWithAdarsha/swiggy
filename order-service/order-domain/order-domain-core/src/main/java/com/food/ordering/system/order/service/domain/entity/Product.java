@@ -3,12 +3,9 @@ package com.food.ordering.system.order.service.domain.entity;
 import com.food.ordering.system.domain.entity.BaseEntity;
 import com.food.ordering.system.domain.valueobject.Money;
 import com.food.ordering.system.domain.valueobject.ProductId;
+import lombok.Getter;
 
-import lombok.Builder;
-import lombok.Data;
-
-@Data
-@Builder
+@Getter
 public class Product extends BaseEntity<ProductId> {
   private String name;
   private Money price;
