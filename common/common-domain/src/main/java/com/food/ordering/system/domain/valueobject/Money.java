@@ -1,10 +1,9 @@
 package com.food.ordering.system.domain.valueobject;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @EqualsAndHashCode
 @Getter
@@ -17,7 +16,7 @@ public class Money {
         this.amount = amount;
     }
 
-    public boolean isGreterThanZero() {
+  public boolean isGreaterThanZero() {
         return this.amount != null && this.amount.compareTo(BigDecimal.ZERO) > 0;
     }
 

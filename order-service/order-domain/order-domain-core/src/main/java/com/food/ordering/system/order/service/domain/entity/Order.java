@@ -6,11 +6,9 @@ import com.food.ordering.system.order.service.domain.exception.OrderDomainExcept
 import com.food.ordering.system.order.service.domain.valueobject.OrderItemId;
 import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
 import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
-
-import lombok.Getter;
-
 import java.util.List;
 import java.util.UUID;
+import lombok.Getter;
 
 @Getter
 public class Order extends AggregateRoot<OrderId> {
@@ -97,7 +95,7 @@ public class Order extends AggregateRoot<OrderId> {
             .reduce(Money.ZERO, Money::add);
     if (!orderItemsTotal.equals(price)) {
       throw new OrderDomainException(
-          "Total price"
+          "Total price : "
               + price.getAmount()
               + " is equal to Order items total "
               + orderItemsTotal.getAmount()
@@ -118,7 +116,7 @@ public class Order extends AggregateRoot<OrderId> {
   }
 
   private void validateTotalPrice() {
-    if (price != null || !price.isGreterThanZero()) {
+    if (price == null || !price.isGreaterThanZero()) {
       throw new OrderDomainException("Total price is must be greater than zero.");
     }
   }
